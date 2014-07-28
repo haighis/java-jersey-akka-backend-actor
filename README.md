@@ -1,9 +1,11 @@
-jersey2-akka-java
+java-jersey-akka-backend-actor
 =================
 
-An example asynchronous REST API written in Java using Jersey 2 and Akka 2.2
+An example of:
 
-[![Build Status](https://buildhive.cloudbees.com/job/pofallon/job/jersey2-akka-java/badge/icon)](https://buildhive.cloudbees.com/job/pofallon/job/jersey2-akka-java/)
+- sample written entirely in Java. 
+- asynchronous REST API written in Java using Jersey 2 
+- Akka 2.3 with backend actor using actor selection
 
 Key concepts
 ------------
