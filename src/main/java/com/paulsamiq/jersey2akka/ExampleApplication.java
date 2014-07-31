@@ -20,6 +20,9 @@ import akka.routing.RoundRobinRouter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.generic.actor.Backend;
+import com.generic.actor.DoublingActor;
+import com.generic.actor.Frontend;
 
 public class ExampleApplication extends Application {
 	
@@ -28,15 +31,14 @@ public class ExampleApplication extends Application {
 	@Inject
 	public ExampleApplication(ServiceLocator serviceLocator) {
 		
-		system = ActorSystem.create("ExampleSystem");
-		system.actorOf(DoublingActor.mkProps().withRouter(new RoundRobinRouter(5)),"doublingRouter");
+		system = ActorSystem.create("AuditSystem");
+		//system.actorOf(DoublingActor.mkProps().withRouter(new RoundRobinRouter(5)),"doublingRouter");
 		system.actorOf(Frontend.mkProps().withRouter(new RoundRobinRouter(5)),"frontend");
 		system.actorOf(Backend.mkProps().withRouter(new RoundRobinRouter(5)),"backend");
 		
 		DynamicConfiguration dc = Injections.getConfiguration(serviceLocator);
 		Injections.addBinding(Injections.newBinder(system).to(ActorSystem.class), dc);
 		dc.commit();
-		
 	}
 	
 	@PreDestroy

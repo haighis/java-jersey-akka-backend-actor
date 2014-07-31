@@ -1,4 +1,6 @@
-package com.paulsamiq.jersey2akka;
+package com.generic.actor;
+
+import com.generic.datamodel.LogMessage;
 
 import akka.actor.ActorSelection;
 import akka.actor.Props;
@@ -22,9 +24,7 @@ public class Frontend extends UntypedActor {
     public void onReceive(Object message) {
         if (message instanceof LogMessage)
         {   
-        	System.out.println("IN frontend");
-        	
-            ActorSelection selection = getContext().actorSelection("akka://ExampleSystem/user/backend");
+            ActorSelection selection = getContext().actorSelection("akka://AuditSystem/user/backend");
             selection.tell(new LogMessage(((LogMessage) message).getTitle()), getSelf());
         }	
         else

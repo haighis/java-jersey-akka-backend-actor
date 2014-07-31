@@ -16,6 +16,8 @@ import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.ManagedAsync;
 
+import com.generic.datamodel.LogMessage;
+
 import scala.concurrent.Future;
 import scala.concurrent.duration.Duration;
 
@@ -28,19 +30,19 @@ import akka.event.LoggingAdapter;
 import akka.pattern.Patterns;
 import akka.util.Timeout;
 
-@Path( "/examples/test")
+@Path( "/api/log")
 public class ExampleService {
 	
 	@Context ActorSystem actorSystem;
 	LoggingAdapter log;
 	
 	@POST
-	@Path("/post")
+	@Path("/save")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response save(LogMessage message)
 	{
-		ActorSelection selection = actorSystem.actorSelection("akka://ExampleSystem/user/frontend");
+		ActorSelection selection = actorSystem.actorSelection("akka://AuditSystem/user/frontend");
 	   
 		selection.tell(new LogMessage(message.getTitle()), ActorRef.noSender());
 		

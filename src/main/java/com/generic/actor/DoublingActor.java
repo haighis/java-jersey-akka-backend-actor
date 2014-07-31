@@ -1,4 +1,4 @@
-package com.paulsamiq.jersey2akka;
+package com.generic.actor;
 
 import akka.actor.Props;
 import akka.actor.UntypedActor;

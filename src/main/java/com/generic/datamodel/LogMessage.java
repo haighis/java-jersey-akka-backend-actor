@@ -1,9 +1,12 @@
-package com.paulsamiq.jersey2akka;
+package com.generic.datamodel;
+
+import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class LogMessage {
+public class LogMessage implements Serializable {
+	private static final long serialVersionUID = 1760154203906810594L;
 	private String title;
 	
 	public String getTitle() {

@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.paulsamiq.examples</groupId>
-  <artifactId>jersey2-akka-java</artifactId>
+  <artifactId>java-jersey-akka-backend-actor</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>jersey2-akka-java</name>
+  <name>java-jersey-akka-backend-actor</name>
   <dependencies>
   <dependency>
   <groupId>mysql</groupId>
