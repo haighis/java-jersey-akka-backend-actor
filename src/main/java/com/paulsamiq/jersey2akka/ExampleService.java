@@ -36,14 +36,23 @@ public class ExampleService {
 	@Context ActorSystem actorSystem;
 	LoggingAdapter log;
 	
+	@GET
+//	@Path("/test")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String test()
+	{	
+		System.out.println("in get");
+		return "test";
+	}
+	
 	@POST
-	@Path("/save")
+//	@Path("/save")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response save(LogMessage message)
 	{
 		ActorSelection selection = actorSystem.actorSelection("akka://AuditSystem/user/frontend");
-	   
+	   System.out.println("in save");
 		selection.tell(new LogMessage(message.getTitle()), ActorRef.noSender());
 		
 		//LogMessage result = message;

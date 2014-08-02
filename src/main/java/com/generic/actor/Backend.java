@@ -30,9 +30,9 @@ public class Backend extends UntypedActor {
         {
     	    logService.SaveMessage((LogMessage)message);
         }
-        else unhandled(message);
+        else 
         {
-        
+        	unhandled(message);
         }
     }
 }

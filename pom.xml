@@ -80,7 +80,7 @@
           <artifactId>tomcat7-maven-plugin</artifactId>
           <version>2.1</version>
           <configuration>
-		      <port>9090</port>
+		      <port>80</port>
 		      <path>/</path>
 		      <useTestClasspath>false</useTestClasspath>
 	      </configuration>
