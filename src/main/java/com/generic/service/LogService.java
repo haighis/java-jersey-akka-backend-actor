@@ -34,7 +34,7 @@ public class LogService {
 	private Connection getConnectionMySql() throws Exception
     {
     	Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost/AuditDb?user=user&password=yourpassword";
+        String url = "jdbc:mysql://localhost/AuditDb?user=root&password=arui69NOW";
 
         return DriverManager.getConnection(url);
     }
